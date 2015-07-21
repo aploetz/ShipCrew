@@ -12,7 +12,13 @@ namespace ShipCrew
 {
     public class MvcApplication : System.Web.HttpApplication
     {
-        public static Container container { get; set;}
+        public static Container container = new Container();
+
+        public static TService GetInstance<TService>()
+        where TService : class
+        {
+            return container.GetInstance<TService>();
+        }
 
         public MvcApplication()
         {

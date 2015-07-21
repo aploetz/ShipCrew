@@ -12,10 +12,27 @@ namespace ShipCrew.Controllers
 {
     public class ShipCrewController : Controller
     {
-        // GET: ShipCrew
-        public async Task<ActionResult> Index(ShipCrewDAO shipCrewDAO)
+        private static IShipCrewDAO dao;
+
+        public ShipCrewController()
         {
-            IEnumerable<ShipCrewModels> shipcrew = await shipCrewDAO.getCrew();
+        }
+
+        protected IShipCrewDAO shipCrewDao
+        {
+            get
+            {
+                if (dao == null)
+                {
+                    dao = MvcApplication.container.GetInstance<IShipCrewDAO>();
+                }
+                return dao;
+            }
+        }
+
+        public async Task<ActionResult> Index()
+        {
+            IEnumerable<ShipCrewModels> shipcrew = await shipCrewDao.getCrew();
             return View("Index", shipcrew.ToList());
         }
     }

@@ -18,24 +18,13 @@ namespace ShipCrew.DAO
 
     public class ShipCrewDAO : IShipCrewDAO
     {
-        private ICassandraDAO cassandraDAO;
         protected readonly ISession session;
-        private IMapper mapper;
+        protected readonly IMapper mapper;
 
         public ShipCrewDAO()
         {
-            if (cassandraDAO == null)
-            {
-                cassandraDAO = new CassandraDAO();
-            }
+            ICassandraDAO cassandraDAO = new CassandraDAO();
             session = cassandraDAO.GetSession();
-            mapper = new Mapper(session);
-        }
-
-        public ShipCrewDAO(ICassandraDAO cassDAO)
-        {
-            cassandraDAO = cassDAO;
-            session = cassDAO.GetSession();
             mapper = new Mapper(session);
         }
 

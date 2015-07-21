@@ -11,12 +11,14 @@ namespace ShipCrew
 {
     public static class SimpleInjectorInitializer
     {
+        public static Container cont { get; set; }
+
         public static Container Initialize()
         {
-            var container = new Container();
-            container.Register<ICassandraDAO, CassandraDAO>();
+            cont = new Container();
+            cont.Register<IShipCrewDAO, ShipCrewDAO>();
 
-            return container;
+            return cont;
         }
 
     }
