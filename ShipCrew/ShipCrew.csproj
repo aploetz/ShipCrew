@@ -187,7 +187,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ShipCrewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleInjectorInitializer.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

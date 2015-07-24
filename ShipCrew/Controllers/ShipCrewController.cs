@@ -24,7 +24,7 @@ namespace ShipCrew.Controllers
             {
                 if (dao == null)
                 {
-                    dao = MvcApplication.container.GetInstance<IShipCrewDAO>();
+                    dao = new ShipCrewDAO();
                 }
                 return dao;
             }
