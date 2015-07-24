@@ -20,6 +20,5 @@ namespace ShipCrew
 
             return cont;
         }
-
     }
 }

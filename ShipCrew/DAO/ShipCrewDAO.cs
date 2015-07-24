@@ -22,6 +22,7 @@ namespace ShipCrew.DAO
         protected readonly IMapper mapper;
 
         public ShipCrewDAO()
+        
         {
             ICassandraDAO cassandraDAO = new CassandraDAO();
             session = cassandraDAO.GetSession();
